@@ -1,0 +1,30 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Coding Bootcamp Weekly Challenge 10. This application generates an HTML webpage with contact information about employees on a software engineering team. This application is built using Node.js and runs on the terminal command line.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandromichelena/team-profile-generator.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "javascript",
+    "management",
+    "html"
+  ],
+  "author": "leandromichelena",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leandromichelena/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/leandromichelena/team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^28.1.0"
+  }
+}
