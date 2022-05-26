@@ -5,7 +5,7 @@ test('creates an Engineer object', () => {
 
     expect(engineer.name).toBe('Mark');
     expect(engineer.id).toEqual(expect.any(Number));
-    expect(engineer.email).toBe('mark@company.com', 'mark346');
+    expect(engineer.email).toBe('mark@company.com');
 });
 
 test("gets Engineer's name property", () => {
