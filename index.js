@@ -1,10 +1,15 @@
 const inquirer = require('inquirer');
+
+// Imports the objects from the lib folder
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
 // Creates an array to store the team employees data as objects
 let team = [];
+
+// Imports the HTML structure from the page template
+const generatePage = require('./src/page-template.js');
 
 function createTeam(){
     console.log("Let's create  your team. Please answer the questions bellow.");
@@ -69,23 +74,17 @@ function createTeam(){
         }
     ])
         .then(({ managerName, managerEmail, managerID, managerOfficeNo }) => {
-            Manager.name = managerName;
-            Manager.email = managerEmail;
-            Manager.id = managerID;
-            Manager.officeNumber = managerOfficeNo;
+            let manager = new Manager(managerName, managerEmail, managerID, managerOfficeNo);
 
             // Adds the manager object to the team array
-            team.push(Manager);
-            console.log(Manager);
-            console.log(team);
+            team.push(manager);
 
             whatsNext();
         });
 }
 
 function whatsNext() {
-    inquirer
-        .prompt([
+    inquirer.prompt([
     {
         type: 'list',
         message: 'What would you like to do next?',
@@ -108,25 +107,154 @@ function whatsNext() {
 };
 
 function addEngineer() {
-    console.log('Function to add an engineer');
-    team.push("Engineer X");
-    console.log(team);
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'engineerName',
+                message: "Ok. Let's add an engineer to the team. What is their name?",
+                validate: engineerName => {
+                    if (engineerName) {
+                        return true;
+                    }
+                    else {
+                        console.log('Please type an employee name.');
+                        return false;
+                    }
+                }
+            },
+            {
+                type: 'input',
+                name: 'engineerEmail',
+                message: 'What is their e-mail address?',
+                validate: engineerEmail => {
+                    if (engineerEmail) {
+                        return true;
+                    }
+                    else {
+                        console.log('Please type a valid e-mail.');
+                        return false;
+                    }
+                }
+            },
+            {
+                type: 'input',
+                name: 'engineerID',
+                message: 'What is their employee ID?',
+                validate: engineerID => {
+                    if (engineerID) {
+                        return true;
+                    }
+                    else {
+                        console.log('Please type a valid ID.');
+                        return false;
+                    }
+                }
+            },
+            {
+                type: 'input',
+                name: 'engineerGithub',
+                message: 'What is their github username?',
+                validate: engineerGithub => {
+                    if (engineerGithub) {
+                        return true;
+                    }
+                    else {
+                        console.log('Please type a valid username.');
+                        return false;
+                    }
+                }
+            }
+        ])
+        .then(({ engineerName, engineerEmail, engineerID, engineerGithub }) => {
+            let engineer = new Engineer(engineerName, engineerEmail, engineerID, engineerGithub);
 
-    // Call the function to decide what to do next
-    whatsNext();
+            // Adds the manager object to the team array
+            team.push(engineer);
+
+            whatsNext();
+        });
 };
 
 function addIntern() {
-    console.log('Function to add an intern');
-    team.push("Intern Z");
-    console.log(team);
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'internName',
+                message: "Ok. Let's add an engineer to the team. What is their name?",
+                validate: internName => {
+                    if (internName) {
+                        return true;
+                    }
+                    else {
+                        console.log('Please type an employee name.');
+                        return false;
+                    }
+                }
+            },
+            {
+                type: 'input',
+                name: 'internEmail',
+                message: 'What is their e-mail address?',
+                validate: internEmail => {
+                    if (internEmail) {
+                        return true;
+                    }
+                    else {
+                        console.log('Please type a valid e-mail.');
+                        return false;
+                    }
+                }
+            },
+            {
+                type: 'input',
+                name: 'internID',
+                message: 'What is their employee ID?',
+                validate: internID => {
+                    if (internID) {
+                        return true;
+                    }
+                    else {
+                        console.log('Please type a valid ID.');
+                        return false;
+                    }
+                }
+            },
+            {
+                type: 'input',
+                name: 'internSchool',
+                message: 'What is their school?',
+                validate: internSchool => {
+                    if (internSchool) {
+                        return true;
+                    }
+                    else {
+                        console.log('Please type a valid school name.');
+                        return false;
+                    }
+                }
+            }
+        ])
+        .then(({ internName, internEmail, internID, internSchool }) => {
+            let intern = new Intern(internName, internEmail, internID, internSchool);
 
-    // Call the function to decide what to do next
-    whatsNext();
+            // Adds the intern object to the team array
+            team.push(intern);
+
+            whatsNext();
+        });
 };
 
 function exportHTML(){
     console.log('This function will write the HTML file with the objects from the team array');
+    generatePage(team)
+        .then(writeFileResponse => {
+            console.log(writeFileResponse);
+        })
+        .catch(err => {
+            console.log(err);
+        })
 };
 
 createTeam();
