@@ -21,7 +21,7 @@ if (role == "Manager"){
       <div class="m-1 card" style="width: 20rem;">
         <div class="card-body">
           <h2 class="card-title">${employee.name}</h2>
-          <h3 class="card-title">Manager</h3>
+          <h3 class="card-title"><i class="d-inline fas fa-mug-hot"></i> Manager</h3>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">e-mail: <a href="mailto:${employee.email}">${employee.email}</a></li>
@@ -37,7 +37,7 @@ else if (role == "Engineer" ){
       <div class="m-1 card" style="width: 20rem;">
         <div class="card-body">
           <h2 class="card-title">${employee.name}</h2>
-          <h3 class="card-title">Engineer</h3>
+          <h3 class="card-title"><i class="fas fa-paperclip"></i> Engineer</h3>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">e-mail: <a href="mailto:${employee.email}">${employee.email}</a></li>
@@ -53,7 +53,7 @@ else {
       <div class="m-1 card" style="width: 20rem;">
         <div class="card-body">
           <h2 class="card-title">${employee.name}</h2>
-          <h3 class="card-title">Intern</h3>
+          <h3 class="card-title"><i class="fas fa-graduation-cap"></i> Intern</h3>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">e-mail: <a href="mailto:${employee.email}">${employee.email}</a></li>
