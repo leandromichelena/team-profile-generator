@@ -6,7 +6,7 @@ This repository contains the working files for the Coding Bootcamp Weekly Challe
 The objective of this exercise is to apply the concepts learned during the module Object Oriented Programming. The application runs on Node.js and presents the user a series of questions about their team members. The app will output an HTML page with the information gathered about the employees and links to their e-mails and github profiles.
 
 ## Example file
-Please check the HTML file in the dist folder.
+Please check the HTML file in the dist folder. <br>
 ![](./images/PageScreenshot.png)
 
 ## Usage
